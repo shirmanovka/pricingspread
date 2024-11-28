@@ -13,7 +13,7 @@ tickers = s_df['Тикер'].unique()
 selected_tickers = st.multiselect('Выберите тикер:', tickers)
  
 # Фильтрация данных
-f_df = df[(s_df['Тикер'].isin(selected_tickers) | (len(selected_tickers) == 0))]
+f_df = s_df[(s_df['Тикер'].isin(selected_tickers) | (len(selected_tickers) == 0))]
 
 
 # Отображение отфильтрованного DataFrame
