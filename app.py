@@ -9,7 +9,6 @@ df['Yield'] = ((100 - df['Цена, пп']) * 100) / df['Срок  до пога
 df['Cupon'] = df['spread'] / df['Цена, пп'] * 100 - df['spread']
 df['Cspread'] = round(df['spread'] + df['Cupon'] + df['Yield'])
 
-['Cspread'] = round(df['spread']+ (df['spread'] / df['Цена, пп'] * 100 - df['spread']) + (((100 - df['Цена, пп']) * 100) / df['Срок  до погашения / оферты, лет']))
 
 s_df = df[['ISIN','Тикер','Рейтинг','Цена, пп', 'Срок  до погашения / оферты, лет','Cspread']].copy()
 
