@@ -9,7 +9,8 @@ df['Yield'] = ((100 - df['Цена, пп']) * 100) / df['Срок  до пога
 df['Cupon'] = df['spread'] / df['Цена, пп'] * 100 - df['spread']
 df['Cspread'] = round(df['spread'] + df['Cupon'] + df['Yield'])
 
-['Cspread'] = round(df['spread']+ )
+['Cspread'] = round(df['spread']+ (df['spread'] / df['Цена, пп'] * 100 - df['spread']) + (((100 - df['Цена, пп']) * 100) / df['Срок  до погашения / оферты, лет']))
+
 s_df = df[['ISIN','Тикер','Рейтинг','Цена, пп', 'Срок  до погашения / оферты, лет','Cspread']].copy()
 
 # Фильтры для столбцов
@@ -34,7 +35,7 @@ if not f_df.empty:
         price_input = st.number_input("Введите цену облигации:", min_value=0.0, step=0.01)
         if st.button("Рассчитать спред"):
             # Расчет спреда на основе введенной цены
-            spread_calculated = (price_input * bond_data['Cspread']) / 100 + bond_data['spread']
+            spread_calculated = round(bond_data['spread'] + (bond_data['spread'] / price_input * 100 - bond_data['spread']) + (((100 - price_input) * 100) / bond_data['Срок  до погашения / оферты, лет']))
             st.success(f"Расчитанный спред: {spread_calculated:.2f}")
     
     elif input_type == "Спред":
