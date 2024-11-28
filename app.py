@@ -10,7 +10,7 @@ df['Cupon'] = df['spread'] / df['Цена, пп'] * 100 - df['spread']
 df['Cspread'] = round(df['spread'] + df['Cupon'] + df['Yield'])
 
 
-s_df = df[['ISIN','Тикер','Рейтинг','Цена, пп', 'Срок  до погашения / оферты, лет','Cspread']].copy()
+s_df = df[['ISIN','Тикер','Рейтинг','Цена, пп', 'Срок  до погашения / оферты, лет','spread','Cspread']].copy()
 
 # Фильтры для столбцов
 tickers = s_df['Тикер'].unique()
