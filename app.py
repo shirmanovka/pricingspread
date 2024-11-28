@@ -1,3 +1,6 @@
+import pandas as pd
+import streamlit as st
+
 st.title('Pricing spread')
 
 df = pd.read_excel(('Карта рынка.xlsx'), skiprows=1)
