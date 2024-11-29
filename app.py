@@ -41,5 +41,8 @@ if not f_df.empty:
         spread_input = st.number_input("Введите спред:", min_value=0.0, step=0.01)
         if st.button("Рассчитать цену"):
             # Расчет цены на основе введенного спреда
-            price_calculated = (spread_input - bond_data['spread']) / (bond_data['Cspread'] / 100) + bond_data['Цена, пп']
+            
+            price_calculated = ((100-bond_data['Cspread']*bond_data['Срок  до погашения / оферты, лет']/100)+((100-bond_data['Cspread']*bond_data['Срок  до погашения / оферты, лет']/100)^2+4*bond_data['Срок  до погашения / оферты, лет']*bond_data['spread'])**0,5)/2
+            
+(spread_input - bond_data['spread']) / (bond_data['Cspread'] / 100) + bond_data['Цена, пп']
             st.success(f"Расчитанная цена: {price_calculated:.2f}")
