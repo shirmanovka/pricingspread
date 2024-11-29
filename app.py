@@ -42,7 +42,7 @@ if not f_df.empty:
         if st.button("Рассчитать цену"):
             # Расчет цены на основе введенного спреда
             
-            price_calculated = ((100-spread_input*bond_data['Срок  до погашения / оферты, лет']/100)+((100-spread_input*bond_data['Срок  до погашения / оферты, лет']/100)**2+4*bond_data['Срок  до погашения / оферты, лет']*bond_data['spread'])**0,5)/2
+            price_calculated = ((100-spread_input*bond_data['Срок  до погашения / оферты, лет']/100)+((100-spread_input*bond_data['Срок  до погашения / оферты, лет']/100)**2+4*bond_data['Срок  до погашения / оферты, лет']*bond_data['spread'])**0.5)/2
 
             
             st.success(f"Расчитанная цена: {price_calculated:.2f}")
